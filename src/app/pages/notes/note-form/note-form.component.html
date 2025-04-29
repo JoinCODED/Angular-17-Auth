@@ -1,0 +1,31 @@
+<p>note-form works!</p>
+<form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+  <div *ngIf="serverError" class="error">{{ serverError }}</div>
+
+  <label for="title">Title</label>
+  <input id="title" formControlName="title" />
+  <app-form-error
+    [control]="noteForm.get('title')"
+    fieldName="Title"
+  ></app-form-error>
+
+  <label for="body">Body</label>
+  <textarea id="body" formControlName="body"></textarea>
+  <app-form-error
+    [control]="noteForm.get('body')"
+    fieldName="Body"
+  ></app-form-error>
+
+  <label for="topics">Topics (comma separated)</label>
+  <input
+    id="topics"
+    formControlName="topics"
+    placeholder="e.g. angular, auth"
+  />
+  <app-form-error
+    [control]="noteForm.get('topics')"
+    fieldName="Topics"
+  ></app-form-error>
+
+  <button type="submit" [disabled]="noteForm.invalid">Create Note</button>
+</form>

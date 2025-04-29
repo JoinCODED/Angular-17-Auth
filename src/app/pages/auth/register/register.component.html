@@ -1,6 +1,15 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+  <div *ngIf="serverError" class="error">{{ serverError }}</div>
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" formControlName="name" />
+  <app-form-error
+    [control]="registerForm.get('name')"
+    fieldName="Name"
+  ></app-form-error>
+
   <label for="email">Email:</label>
-  <input type="text" id="email" formControlName="email" />
+  <input type="email" id="email" formControlName="email" />
   <app-form-error
     [control]="registerForm.get('email')"
     fieldName="Email"
@@ -13,5 +22,13 @@
     fieldName="Password"
   ></app-form-error>
 
-  <button type="submit" [disabled]="registerForm.invalid">Register</button>
+  <label for="image">Profile Image:</label>
+  <input type="file" id="image" (change)="onFileSelected($event)" />
+  <div *ngIf="!selectedFile && registerForm.touched" class="error">
+    Image is required
+  </div>
+
+  <button type="submit" [disabled]="registerForm.invalid || !selectedFile">
+    Register
+  </button>
 </form>

@@ -1,0 +1,18 @@
+<p>notes works!</p>
+<div class="notes-header">
+  <button routerLink="/notes/new" class="new-note-button">
+    + Add New Note
+  </button>
+</div>
+
+<div *ngIf="loading">Loading notes…</div>
+
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<ul *ngIf="!loading && !error">
+  <li *ngFor="let note of notes">
+    <a [routerLink]="['/notes', note._id]">
+      {{ note.title }}
+    </a>
+  </li>
+</ul>
