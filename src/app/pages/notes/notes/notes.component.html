@@ -1,0 +1,19 @@
+<div class="notes-container">
+  @if(token | async){
+  <button class="add-note-button" (click)="createNote()">Add Note</button>
+  } @if(notes.length > 0){
+  <div class="notes-grid">
+    @for(note of notes; track note){
+    <div class="note" (click)="showDetails(note._id)">
+      <div class="note-content">
+        <h3>{{ note.title }}</h3>
+        <p>{{ note.body }}</p>
+      </div>
+      <div class="note-actions">
+        <button>View Note</button>
+      </div>
+    </div>
+    }
+  </div>
+  }
+</div>

@@ -1,17 +1,4 @@
-<nav>
-  <button
-    [routerLink]="['']"
-    routerLinkActive="active-button"
-    [routerLinkActiveOptions]="{ exact: true }"
-  >
-    Home
-  </button>
-  <button [routerLink]="['login']" routerLinkActive="active-button">
-    Login
-  </button>
-  <button [routerLink]="['register']" routerLinkActive="active-button">
-    Register
-  </button>
-</nav>
-
-<router-outlet></router-outlet>
+<div class="app-container">
+  <app-nav></app-nav>
+  <router-outlet></router-outlet>
+</div>
