@@ -1,0 +1,7 @@
+<div class="notes-list">
+    <div *ngFor="let note of notes" (click)="viewNoteDetails(note.id)" class="note-item">
+      <h3>{{ note.title }}</h3>
+      <p>{{ note.body | slice:0:100 }}...</p>
+    </div>
+  </div>
+  

@@ -1,0 +1,7 @@
+<div *ngIf="note">
+    <h1>{{ note.title }}</h1>  <!-- Display the title of the note -->
+    <p><strong>Author:</strong> {{ note.author?.name }}</p>  <!-- Display the author's name (optional) -->
+    <p><strong>Topics:</strong> {{ note.topics?.join(', ') }}</p>  <!-- Display the topics related to the note -->
+    <p>{{ note.body }}</p>  <!-- Display the body/content of the note -->
+  </div>
+  

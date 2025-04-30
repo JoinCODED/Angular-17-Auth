@@ -1,0 +1,32 @@
+<div class="create-note">
+    <h2>Create a New Note</h2>
+    
+    <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="title">Title</label>
+        <input id="title" formControlName="title" type="text">
+        <div *ngIf="noteForm.get('title')?.invalid && noteForm.get('title')?.touched">
+          <small class="error">Title is required.</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="body">Body</label>
+        <textarea id="body" formControlName="body"></textarea>
+        <div *ngIf="noteForm.get('body')?.invalid && noteForm.get('body')?.touched">
+          <small class="error">Body is required.</small>
+        </div>
+      </div>
+  
+      <div>
+        <label for="topics">Topics</label>
+        <input id="topics" formControlName="topics" type="text">
+        <div *ngIf="noteForm.get('topics')?.invalid && noteForm.get('topics')?.touched">
+          <small class="error">At least one topic is required.</small>
+        </div>
+      </div>
+  
+      <button type="submit" [disabled]="noteForm.invalid">Create Note</button>
+    </form>
+  </div>
+  

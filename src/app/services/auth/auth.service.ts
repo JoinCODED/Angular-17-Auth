@@ -3,12 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { BaseService } from '../base/base.service';
 import { AuthRequest, AuthResponse } from '../../interfaces/auth/auth';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService extends BaseService {
-  private readonly baseUrl = 'https://reqres.in/api';
+  
+  private readonly baseUrl = 'https://api.escuelajs.co/api/v1/auth';
+  private loggedIn = false;
 
-  constructor(_http: HttpClient) {
+  constructor(_http: HttpClient, private cookieService: CookieService) {
     super(_http);
   }
 
@@ -24,8 +27,8 @@ export class AuthService extends BaseService {
     );
   }
 
-  register(data: AuthRequest): Observable<AuthResponse> {
-    return this.post<AuthResponse, AuthRequest>(
+  register(data: FormData): Observable<AuthResponse> {
+    return this.post<AuthResponse, FormData>(
       `${this.baseUrl}/register`,
       data
     ).pipe(
@@ -35,4 +38,26 @@ export class AuthService extends BaseService {
       })
     );
   }
+
+  setToken(token: string): void {
+    this.cookieService.set('authToken', token, { path: '/' });
+  }
+
+  getToken(): string {
+    return this.cookieService.get('authToken');
+  }
+
+  deleteToken(): void {
+    this.cookieService.delete('authToken', '/');
+  }
+
+  isAuthenticated(): boolean {
+    return this.loggedIn;
+  }
+
+   logout(): void {
+   this.deleteToken();
+   this.loggedIn = false;
+  }
+
 }
