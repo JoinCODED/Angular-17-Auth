@@ -6,7 +6,7 @@ import { AuthRequest, AuthResponse } from '../../interfaces/auth/auth';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService extends BaseService {
-  private readonly baseUrl = 'https://reqres.in/api';
+  private readonly baseUrl = 'https://task-react-auth-backend.eapi.joincoded.com/api/auth/';
 
   constructor(_http: HttpClient) {
     super(_http);
