@@ -1,16 +1,16 @@
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 import { BaseService } from '../base/base.service';
 import { AuthRequest, AuthResponse } from '../../interfaces/auth/auth';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { toObservable } from '@angular/core/rxjs-interop';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService extends BaseService {
   private readonly baseUrl =
     'https://task-react-auth-backend.eapi.joincoded.com/api/auth';
-  private readonly router = inject(Router);
+  // private readonly router = inject(Router);
 
   constructor(_http: HttpClient) {
     super(_http);
