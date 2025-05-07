@@ -1,0 +1,26 @@
+<div class="new-note-container">
+  <form [formGroup]="newNoteForm" (ngSubmit)="onSubmit()" class="new-note-form">
+    <label for="title">Title</label>
+    <input type="text" id="title" formControlName="title" />
+    <app-form-error
+      [control]="newNoteForm.get('title')"
+      fieldName="Title"
+    ></app-form-error>
+
+    <label for="body">Body</label>
+    <textarea id="body" formControlName="body"></textarea>
+    <app-form-error
+      [control]="newNoteForm.get('body')"
+      fieldName="Body"
+    ></app-form-error>
+
+    <label for="topic">Topics</label>
+    <input type="text" id="topic" formControlName="topic" />
+    <app-form-error
+      [control]="newNoteForm.get('topic')"
+      fieldName="Topic"
+    ></app-form-error>
+
+    <button type="submit" [disabled]="newNoteForm.invalid">Create</button>
+  </form>
+</div>

@@ -1,0 +1,39 @@
+<!-- @if(note){
+<div class="note-details-container">
+  <div class="note-details-header">
+    <h1>{{ note.title }}</h1>
+    <p>{{ note.body }}</p>
+    <ul class="topics-list">
+      @for(topic of note.topic; track topic){
+      <li>{{ topic }}</li>
+      }
+    </ul>
+  </div>
+  <div class="user-info">
+    <img [src]="note.user.image" alt="User Image" />
+    <p>{{ note.user.name }}</p>
+    <p>{{ note.user.email }}</p>
+  </div>
+</div>
+} -->
+
+@if(note){
+<div class="note-details-container">
+  <div class="note-details-user-info">
+    <img [src]="note.user.image" alt="User Image" />
+    <div class="note-details-user-info-text">
+      <p>{{ note.user.name }}</p>
+      <p>{{ note.user.email }}</p>
+    </div>
+  </div>
+  <div class="note-details-content">
+    <h1>{{ note.title }}</h1>
+    <p>{{ note.body }}</p>
+  </div>
+  <div class="note-details-topics">
+    @for(topic of note.topic; track topic){
+    <li>{{ topic }}</li>
+    }
+  </div>
+</div>
+}

@@ -1,0 +1,34 @@
+<nav class="nav">
+  <div class="nav-wrapper">
+    <div class="logo" (click)="navigateToHome()">
+      <p>Auth<span>App</span></p>
+    </div>
+    <div class="nav-links">
+      <a
+        [routerLink]="['/']"
+        routerLinkActive="active-a"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+      @if(token | async){
+      <a [routerLink]="['notes']" routerLinkActive="active-a"> Notes </a>
+      <a (click)="logout()">Logout</a>
+      } @else{
+      <a
+        [routerLink]="['login']"
+        routerLinkActive="active-a"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Login
+      </a>
+      <a
+        [routerLink]="['register']"
+        routerLinkActive="active-a"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Register
+      </a>
+      }
+    </div>
+  </div>
+</nav>

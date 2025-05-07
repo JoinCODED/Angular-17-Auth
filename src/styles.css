@@ -1,1 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #0f0f0f;
+  color: #f0f0f0;
+}
+/* 
+button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid #f0f0f0;
+}
+
+button:hover {
+  background-color: #fafafa;
+}
+
+.active-button {
+  background-color: #4caf50;
+  color: white;
+}
+
+.active-button:hover {
+  background-color: #7fb681;
+}
+
+.app-container {
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+} */

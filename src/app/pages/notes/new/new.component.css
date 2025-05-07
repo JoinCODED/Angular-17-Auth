@@ -1,11 +1,11 @@
-.login-container {
+.new-note-container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.login-form {
+.new-note-form {
   max-width: 500px;
   width: 100%;
   display: flex;
@@ -16,11 +16,11 @@
   border-radius: 5px;
 }
 
-.login-form label {
+.new-note-form label {
   color: #fff;
 }
 
-.login-form input {
+.new-note-form input {
   background: #fff0;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -28,12 +28,25 @@
   color: #fff;
 }
 
-.login-form input:focus {
+.new-note-form input:focus {
   outline: solid 1px #00aa00;
   border: none;
 }
 
-.login-form button {
+.new-note-form textarea {
+  background: #fff0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  color: #fff;
+}
+
+.new-note-form textarea:focus {
+  outline: solid 1px #00aa00;
+  border: none;
+}
+
+.new-note-form button {
   background: #00aa00;
   border: none;
   border-radius: 5px;
@@ -42,6 +55,6 @@
   cursor: pointer;
 }
 
-.login-form button:hover {
+.new-note-form button:hover {
   background: #00bb00;
 }
